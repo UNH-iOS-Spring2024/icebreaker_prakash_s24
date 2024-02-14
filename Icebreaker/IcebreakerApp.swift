@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct IcebreakerApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
+    init(){
+           let providerFactory = AppCheckDebugProviderFactory()
+           AppCheck.setAppCheckProviderFactory(providerFactory)
+           
+           FirebaseApp.configure()
+       }
+       
+       var body: some Scene {
+           WindowGroup {
+               ContentView()
+           }
+       }
+   }
